@@ -1,0 +1,19 @@
+<div class='d-grid gap-2'>
+  <div class='d-flex justify-content-center mt-3'>
+    <%= render 'flights/flight_search' %>
+  </div>
+  <div class='mb-5 text-monospace'>
+    <% unless @flights.empty? %>
+      <% @flights.each do |flight| %>
+        <div class='container bg-light mb-3'>
+          <%= render flight %>
+        </div>
+      <% end %>
+    <% else %>
+      <p class='text-center mt-5 mb-3'>No available flights!</p>
+    <% end %>
+  </div>
+  <div class='d-flex justify-content-center bg-light'>
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+</div>

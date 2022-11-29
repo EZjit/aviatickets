@@ -1,0 +1,13 @@
+<%= form_with scope: :search, url: flights_path, method: 'GET' do |f| %>
+  <div class='input-group mb-3'>
+    <%= f.label :departure_airport, 'From: ', class: 'input-group-text' %>
+    <%= f.select :departure_airport, Airport.all.order('name').map { |a| [a.name, a.id] }, include_blank: true %>
+    <%= f.label :arrival_airport, 'To: ', class: 'input-group-text' %>
+    <%= f.select :arrival_airport, Airport.all.order('name').map { |a| [a.name, a.id] }, include_blank: true %>
+    <%= f.label :flight_start, 'Date: ', class: 'input-group-text' %>
+    <%= f.select :flight_start, Flight.select_flight_dates, include_blank: true %>
+    <%= f.label :tickets_num, 'Number of passengers: ', class: 'input-group-text' %>
+    <%= f.select :tickets_num, 1..4, include_blank: true %>
+    <%= f.submit 'Search', class: 'btn btn-search btn-danger' %>
+  </div>
+<% end %>

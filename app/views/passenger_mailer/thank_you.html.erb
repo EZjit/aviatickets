@@ -1,0 +1,30 @@
+<div class='title'>AviaTickets</div>
+<p>Thank you for booking flight with AviaTickets! Please review your trip details below</p>
+<p><%= link_to 'View Booking', @url %>
+<table>
+  <thead>
+    <tr>
+      <th>Flight #</th>
+      <th>Departs</th>
+      <th>Arrives</th>
+      <th>Date</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @booking.flight.id %></td>
+      <td><%= @booking.flight.departure_airport %></td>
+      <td><%= @booking.flight.arrival_airport %></td>
+      <td><%= @booking.flight.flight_start %></td>
+      <td><%= @booking.flight.flight_duration %></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<p>Passengers:</p>
+<ul>
+  <% @booking.passengers.each do |passenger| %>
+    <li><%= passenger.name %></li>
+  <% end %>
+</ul>

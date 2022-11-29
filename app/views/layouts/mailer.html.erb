@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      body {
+        font-family: 'Times New Roman', serif;
+        padding-left: 10px;
+      }
+
+      .title {
+        font-family: 'Arial', cursive;
+        font-size: 40px;
+        color: #385898;
+        padding-top: 10px;
+      }
+
+      table, th, td {
+        border-collapse: collapse
+      }
+
+      th, td {
+        border: 1px solid #cecece;
+        padding: 15px;
+      }
+
+      th {
+        background-color: #98c678;
+        font-weight: 800;
+        font-size: 14px;
+      }
+
+      tr {
+        background-color: #f5faff;
+      }
+
+      ul {
+        list-style-type: none;
+        margin-top: 8px;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

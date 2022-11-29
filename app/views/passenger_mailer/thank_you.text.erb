@@ -1,0 +1,16 @@
+AviaTickets
+
+Thank you for booking flight with AviaTickets! Please review your trip details below
+
+Please visit <%= @url %> to view your booking.
+
+Flight #: <%= @booking.flight.id %>
+Departs:  <%= @booking.flight.departure_airport %>
+Arrives:  <%= @booking.flight.arrival_airport %>
+Date:     <%= @booking.flight.flight_start %>
+Duration: <%= @booking.flight.flight_duration %>
+
+Passengers:
+<% @booking.passengers.each do |passenger| %>
+  <%= passenger.name %>
+<% end %>

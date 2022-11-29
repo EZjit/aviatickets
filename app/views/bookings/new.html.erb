@@ -1,0 +1,28 @@
+<div class='container'>
+  <p>From: <%= "#{@flight.departure_airport.name}" %></p>
+  <p>Departure at: <%= "#{@flight.flight_start}" %></p>
+  <p>Duration: <%= "#{ActiveSupport::Duration.build(@flight.flight_duration).inspect}" %></p>
+  <p>To: <%= "#{@flight.arrival_airport.name}" %></p>
+  <p>Arrival at: <%= @flight.flight_start + @flight.flight_duration %></p>
+  <br/>
+</div>
+<h2 class='text-center'>Passengers information</h2>
+<div class='container'>
+  <%= form_with(model: @booking, local: true) do |f| %>
+    <%= f.hidden_field :flight_id, value: @flight.id %>
+    <div class='container'>
+      <%= f.fields_for :passengers do |sub_form| %>
+        <div>
+        <%= sub_form.hidden_field :id, value: nil %>
+        <%= sub_form.label :name, 'First name', class:'input-group-text' %>
+        <%= sub_form.text_field :name, class:'input-group-text' %>
+        <%= sub_form.label :email, 'Email', class:'input-group-text' %>
+        <%= sub_form.text_field :email, class:'input-group-text' %>
+        </div>
+      <% end %>
+    </div>
+    <%= f.submit 'Book Flight', class: 'btn btn-success' %>
+    <%= link_to 'Cancel', root_path, class: 'btn btn-danger' %>
+  <% end %>
+</div>
+

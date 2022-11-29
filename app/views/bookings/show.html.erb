@@ -1,0 +1,15 @@
+<div class='container'>
+  <p>From: <%= "#{@booking.flight.departure_airport.name}" %></p>
+  <p>Departure at: <%= "#{@booking.flight.flight_start}" %></p>
+  <p>Duration: <%= "#{ActiveSupport::Duration.build(@booking.flight.flight_duration).inspect}" %></p>
+  <p>To: <%= "#{@booking.flight.arrival_airport.name}" %></p>
+  <p>Arrival at: <%= @booking.flight.flight_start + @booking.flight.flight_duration %></p>
+  <br/>
+</div>
+
+<div class='container'>
+  <% @booking.passengers.each do |passenger| %>
+    <div><%= passenger.name %></div>
+    <div><%= passenger.email %></div>
+  <% end %>
+</div>

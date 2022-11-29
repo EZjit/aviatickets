@@ -1,0 +1,16 @@
+<div>
+  <p>From: <%= "#{flight.departure_airport.name}" %></p>
+  <p>Departure at: <%= "#{flight.flight_start}" %></p>
+  <p>Duration: <%= "#{ActiveSupport::Duration.build(flight.flight_duration).inspect}" %></p>
+  <p>To: <%= "#{flight.arrival_airport.name}" %></p>
+  <p>Arrival at: <%= flight.flight_start + flight.flight_duration %></p>
+  <div class='w-100 d-flex justify-content-center align-items-center'>
+    <%= button_to 'Book flight',
+        new_booking_path,
+        method: 'get',
+        params: { flight_id: flight.id,
+                  id: 'booking_button',
+                  tickets_num: @tickets_num },
+        class: 'btn btn-outline-success w-10 mt-5' %>
+  </div>
+</div>
