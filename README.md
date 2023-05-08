@@ -1,24 +1,7 @@
-# README
+Aviatickets app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Functionality:
+- account creation and editing
+- search for available flights
+- book flights (enter passengers data)
+Before starting app: rake db:seed Seeding database will take some time, there's a lot of data :)
